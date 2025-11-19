@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Johan Andrés Pérez Marín",
+    "title": "Desarrollador Full Stack",
+    "subtitle": "Especializado en backend, arquitectura de microservicios, principios SOLID y APIs escalables con clean code",
+    "cta": {
+      "projects": "Ver Proyectos",
+      "cv": "Descargar CV",
+      "contact": "Contacto"
+    }
+  },
+  "about": {
+    "title": "Sobre mí",
+    "description": "Soy un desarrollador Full Stack con fuerte enfoque en backend y arquitectura de software. Mi experiencia abarca desde el desarrollo de aplicaciones web y móviles hasta la implementación de microservicios escalables en la nube. Me apasiona escribir código limpio, aplicar principios SOLID y trabajar con metodologías ágiles. Cuento con sólida experiencia en equipos multidisciplinarios, comunicación profesional bilingüe y aprendizaje continuo de nuevas tecnologías.",
+    "highlights": [
+      "Desarrollo de arquitecturas escalables y mantenibles",
+      "Experiencia en metodologías ágiles (Scrum/Kanban)",
+      "Trabajo en equipo multidisciplinario",
+      "Comunicación profesional bilingüe",
+      "Aprendizaje continuo y adaptabilidad"
+    ]
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "categories": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "databases": "Bases de Datos",
+      "devops": "DevOps & Cloud",
+      "testing": "Testing",
+      "tools": "Herramientas & Colaboración"
+    },
+    "backend_list": ["Java (Spring Boot)", "Node.js", "NestJS", "Express", "Python (FastAPI, Django)", "C# (.NET Core)", "PHP"],
+    "frontend_list": ["Angular", "React", "Next.js", "Vue", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "SCSS", "Tailwind", "Bootstrap"],
+    "databases_list": ["SQL Server", "PostgreSQL", "MySQL", "MongoDB", "Redis"],
+    "devops_list": ["Docker", "Kubernetes", "AWS", "Terraform", "CI/CD"],
+    "testing_list": ["Jest", "Cypress", "Playwright", "Postman"],
+    "tools_list": ["GitHub", "Jira", "Confluence", "Notion", "API REST/GraphQL"]
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "jobs": [
+      {
+        "company": "Wookky",
+        "role": "Full Stack Developer",
+        "period": "2021 - Presente",
+        "description": "Desarrollo de plataformas web y aplicaciones móviles completas, implementación de e-commerce y APIs RESTful/GraphQL. Creación de arquitecturas de microservicios, despliegues en la nube, sistemas de autenticación seguros y pipelines CI/CD.",
+        "achievements": [
+          "Desarrollo de múltiples plataformas e-commerce",
+          "Implementación de microservicios escalables",
+          "Integración de APIs REST y GraphQL",
+          "Despliegue y gestión en AWS"
+        ]
+      },
+      {
+        "company": "Ferretería Areiza",
+        "role": "Desarrollador Freelance",
+        "period": "2022 - 2023",
+        "description": "Desarrollo de sistema web integral con punto de venta, gestión de inventario y contabilidad. Implementación de arquitectura de microservicios con Java Spring Boot, SQL Server, frontend en Angular y containerización con Docker.",
+        "achievements": [
+          "Sistema POS completo con gestión de inventario",
+          "Arquitectura de microservicios con Spring Boot",
+          "Base de datos SQL Server optimizada",
+          "Frontend responsive en Angular"
+        ]
+      },
+      {
+        "company": "Teleperformance",
+        "role": "Intérprete Médico",
+        "period": "2020 - 2021",
+        "description": "Interpretación médica profesional bilingüe, garantizando precisión en la comunicación entre profesionales de la salud y pacientes. Desarrollo de habilidades de comunicación efectiva, responsabilidad y ética profesional.",
+        "achievements": [
+          "Comunicación profesional bilingüe",
+          "Precisión y responsabilidad",
+          "Ética profesional",
+          "Trabajo bajo presión"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "list": [
+      {
+        "name": "E-commerce Platform",
+        "description": "Plataforma de comercio electrónico completa con carrito de compras, sistema de pagos, panel administrativo y gestión de inventario en tiempo real.",
+        "stack": ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
+        "demo": "#",
+        "repo": "#"
+      },
+      {
+        "name": "Microservices API Gateway",
+        "description": "API Gateway escalable con autenticación JWT, rate limiting, balanceo de carga y orquestación de múltiples microservicios backend.",
+        "stack": ["Spring Boot", "Redis", "PostgreSQL", "Docker", "Kubernetes"],
+        "demo": "#",
+        "repo": "#"
+      },
+      {
+        "name": "Real-time Chat Application",
+        "description": "Aplicación de chat en tiempo real con salas, mensajería privada, notificaciones push y compartición de archivos multimedia.",
+        "stack": ["Next.js", "Socket.io", "NestJS", "PostgreSQL", "Redis"],
+        "demo": "#",
+        "repo": "#"
+      },
+      {
+        "name": "Business Management System",
+        "description": "Sistema integral de gestión empresarial con módulos de CRM, inventario, facturación, contabilidad y reportes analíticos.",
+        "stack": ["Angular", "Java Spring", "SQL Server", "Docker"],
+        "demo": "#",
+        "repo": "#"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Interesado en trabajar juntos? Estoy disponible para proyectos, colaboraciones y oportunidades de trabajo remoto. ¡Conversemos!",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "send": "Enviar mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado exitosamente!",
+      "error": "Error al enviar mensaje. Por favor intenta nuevamente.",
+      "validation": {
+        "nameRequired": "El nombre es requerido",
+        "emailRequired": "El correo es requerido",
+        "emailInvalid": "Correo electrónico inválido",
+        "subjectRequired": "El asunto es requerido",
+        "messageRequired": "El mensaje es requerido",
+        "messageMin": "El mensaje debe tener al menos 10 caracteres"
+      }
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados"  }
+}

@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Johan Andrés Pérez Marín",
+    "title": "Full Stack Developer",
+    "subtitle": "Specialized in backend, microservices architecture, SOLID principles, and scalable APIs with clean code",
+    "cta": {
+      "projects": "View Projects",
+      "cv": "Download CV",
+      "contact": "Contact"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I'm a Full Stack Developer with a strong focus on backend and software architecture. My experience ranges from developing web and mobile applications to implementing scalable cloud microservices. I'm passionate about writing clean code, applying SOLID principles, and working with agile methodologies. I have solid experience in multidisciplinary teams, bilingual professional communication, and continuous learning of new technologies.",
+    "highlights": [
+      "Development of scalable and maintainable architectures",
+      "Experience in agile methodologies (Scrum/Kanban)",
+      "Multidisciplinary teamwork",
+      "Bilingual professional communication",
+      "Continuous learning and adaptability"
+    ]
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "categories": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "databases": "Databases",
+      "devops": "DevOps & Cloud",
+      "testing": "Testing",
+      "tools": "Tools & Collaboration"
+    },
+    "backend_list": ["Java (Spring Boot)", "Node.js", "NestJS", "Express", "Python (FastAPI, Django)", "C# (.NET Core)", "PHP"],
+    "frontend_list": ["Angular", "React", "Next.js", "Vue", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "SCSS", "Tailwind", "Bootstrap"],
+    "databases_list": ["SQL Server", "PostgreSQL", "MySQL", "MongoDB", "Redis"],
+    "devops_list": ["Docker", "Kubernetes", "AWS", "Terraform", "CI/CD"],
+    "testing_list": ["Jest", "Cypress", "Playwright", "Postman"],
+    "tools_list": ["GitHub", "Jira", "Confluence", "Notion", "API REST/GraphQL"]
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "jobs": [
+      {
+        "company": "Wookky",
+        "role": "Full Stack Developer",
+        "period": "2021 - Present",
+        "description": "Development of complete web platforms and mobile applications, implementation of e-commerce and RESTful/GraphQL APIs. Creation of microservices architectures, cloud deployments, secure authentication systems, and CI/CD pipelines.",
+        "achievements": [
+          "Development of multiple e-commerce platforms",
+          "Implementation of scalable microservices",
+          "Integration of REST and GraphQL APIs",
+          "AWS deployment and management"
+        ]
+      },
+      {
+        "company": "Ferretería Areiza",
+        "role": "Freelance Developer",
+        "period": "2022 - 2023",
+        "description": "Development of comprehensive web system with point of sale, inventory management, and accounting. Implementation of microservices architecture with Java Spring Boot, SQL Server, Angular frontend, and Docker containerization.",
+        "achievements": [
+          "Complete POS system with inventory management",
+          "Microservices architecture with Spring Boot",
+          "Optimized SQL Server database",
+          "Responsive Angular frontend"
+        ]
+      },
+      {
+        "company": "Teleperformance",
+        "role": "Medical Interpreter",
+        "period": "2020 - 2021",
+        "description": "Bilingual professional medical interpretation, ensuring precision in communication between healthcare professionals and patients. Development of effective communication skills, responsibility, and professional ethics.",
+        "achievements": [
+          "Bilingual professional communication",
+          "Precision and responsibility",
+          "Professional ethics",
+          "Work under pressure"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "list": [
+      {
+        "name": "E-commerce Platform",
+        "description": "Complete e-commerce platform with shopping cart, payment system, admin panel, and real-time inventory management.",
+        "stack": ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
+        "demo": "#",
+        "repo": "#"
+      },
+      {
+        "name": "Microservices API Gateway",
+        "description": "Scalable API Gateway with JWT authentication, rate limiting, load balancing, and orchestration of multiple backend microservices.",
+        "stack": ["Spring Boot", "Redis", "PostgreSQL", "Docker", "Kubernetes"],
+        "demo": "#",
+        "repo": "#"
+      },
+      {
+        "name": "Real-time Chat Application",
+        "description": "Real-time chat application with rooms, private messaging, push notifications, and multimedia file sharing.",
+        "stack": ["Next.js", "Socket.io", "NestJS", "PostgreSQL", "Redis"],
+        "demo": "#",
+        "repo": "#"
+      },
+      {
+        "name": "Business Management System",
+        "description": "Comprehensive business management system with CRM modules, inventory, billing, accounting, and analytical reports.",
+        "stack": ["Angular", "Java Spring", "SQL Server", "Docker"],
+        "demo": "#",
+        "repo": "#"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Interested in working together? I'm available for projects, collaborations, and remote work opportunities. Let's talk!",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Error sending message. Please try again.",
+      "validation": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Invalid email address",
+        "subjectRequired": "Subject is required",
+        "messageRequired": "Message is required",
+        "messageMin": "Message must be at least 10 characters"
+      }
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "built": "Built with"
+  }
+}
