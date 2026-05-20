@@ -1,149 +1,90 @@
 {
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "skills": "Skills",
-    "experience": "Experience",
     "projects": "Projects",
+    "evals": "Evals",
+    "experience": "Experience",
+    "about": "About",
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hi, I'm",
-    "name": "Johan Andrés Pérez Marín",
-    "title": "Full Stack Developer",
-    "subtitle": "Specialized in backend, microservices architecture, SOLID principles, and scalable APIs with clean code",
+    "tagline": "I ship LLM features to production — and I prove they work.",
     "cta": {
-      "projects": "View Projects",
-      "cv": "Download CV",
-      "contact": "Contact"
+      "chat": "Chat with my CV",
+      "wiso": "See WISO case study",
+      "cv": "Download CV — Backend/LLM"
     }
   },
-  "about": {
-    "title": "About Me",
-    "description": "I'm a Full Stack Developer with a strong focus on backend and software architecture. My experience ranges from developing web and mobile applications to implementing scalable cloud microservices. I'm passionate about writing clean code, applying SOLID principles, and working with agile methodologies. I have solid experience in multidisciplinary teams, bilingual professional communication, and continuous learning of new technologies.",
-    "highlights": [
-      "Development of scalable and maintainable architectures",
-      "Experience in agile methodologies (Scrum/Kanban)",
-      "Multidisciplinary teamwork",
-      "Bilingual professional communication",
-      "Continuous learning and adaptability"
-    ]
-  },
-  "skills": {
-    "title": "Technical Skills",
-    "categories": {
-      "backend": "Backend",
-      "frontend": "Frontend",
-      "databases": "Databases",
-      "devops": "DevOps & Cloud",
-      "testing": "Testing",
-      "tools": "Tools & Collaboration"
+  "chat": {
+    "title": "Chat with my CV",
+    "subtitle": "Ask me anything. I'm grounded on Johan's CV and projects.",
+    "placeholder": "Ask anything…",
+    "suggestions": [
+      "Tell me about WISO",
+      "How does he evaluate LLMs?",
+      "What does he do outside of work?",
+      "¿Qué hizo en el módulo de tareas?"
+    ],
+    "states": {
+      "streaming": "[ STREAMING ]",
+      "computing": "[ COMPUTING… ]",
+      "rateLimited": "You've used today's 5 evals. Try again tomorrow.",
+      "globalLimit": "Today's eval budget is exhausted. Try again tomorrow.",
+      "error": "Couldn't reach the assistant. Try again in a moment."
     },
-    "backend_list": ["Java (Spring Boot)", "Node.js", "NestJS", "Express", "Python (FastAPI, Django)", "C# (.NET Core)", "PHP"],
-    "frontend_list": ["Angular", "React", "Next.js", "Vue", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "SCSS", "Tailwind", "Bootstrap"],
-    "databases_list": ["SQL Server", "PostgreSQL", "MySQL", "MongoDB", "Redis"],
-    "devops_list": ["Docker", "Kubernetes", "AWS", "Terraform", "CI/CD"],
-    "testing_list": ["Jest", "Cypress", "Playwright", "Postman"],
-    "tools_list": ["GitHub", "Jira", "Confluence", "Notion", "API REST/GraphQL"]
+    "metadata": {
+      "model": "MODEL",
+      "tokens": "TOKENS",
+      "latency": "LATENCY",
+      "remaining": "REMAINING TODAY"
+    }
   },
-  "experience": {
-    "title": "Professional Experience",
-    "jobs": [
-      {
-        "company": "Wookky",
-        "role": "Full Stack Developer",
-        "period": "2021 - Present",
-        "description": "Development of complete web platforms and mobile applications, implementation of e-commerce and RESTful/GraphQL APIs. Creation of microservices architectures, cloud deployments, secure authentication systems, and CI/CD pipelines.",
-        "achievements": [
-          "Development of multiple e-commerce platforms",
-          "Implementation of scalable microservices",
-          "Integration of REST and GraphQL APIs",
-          "AWS deployment and management"
-        ]
-      },
-      {
-        "company": "Ferretería Areiza",
-        "role": "Freelance Developer",
-        "period": "2022 - 2023",
-        "description": "Development of comprehensive web system with point of sale, inventory management, and accounting. Implementation of microservices architecture with Java Spring Boot, SQL Server, Angular frontend, and Docker containerization.",
-        "achievements": [
-          "Complete POS system with inventory management",
-          "Microservices architecture with Spring Boot",
-          "Optimized SQL Server database",
-          "Responsive Angular frontend"
-        ]
-      },
-      {
-        "company": "Teleperformance",
-        "role": "Medical Interpreter",
-        "period": "2020 - 2021",
-        "description": "Bilingual professional medical interpretation, ensuring precision in communication between healthcare professionals and patients. Development of effective communication skills, responsibility, and professional ethics.",
-        "achievements": [
-          "Bilingual professional communication",
-          "Precision and responsibility",
-          "Professional ethics",
-          "Work under pressure"
-        ]
-      }
-    ]
+  "evals": {
+    "title": "How this assistant is evaluated",
+    "subtitle": "Every deploy runs an adversarial test suite. Methodology by Johan.",
+    "metrics": {
+      "passRate": "PASS RATE",
+      "p50": "p50 LATENCY",
+      "p95": "p95 LATENCY",
+      "cost": "COST / MSG"
+    },
+    "table": {
+      "id": "ID",
+      "prompt": "PROMPT",
+      "expected": "EXPECTED",
+      "status": "STATUS",
+      "judge": "JUDGE"
+    },
+    "lastEvaluated": "Last evaluated",
+    "viewMethodology": "View methodology →"
   },
   "projects": {
-    "title": "Featured Projects",
-    "list": [
-      {
-        "name": "E-commerce Platform",
-        "description": "Complete e-commerce platform with shopping cart, payment system, admin panel, and real-time inventory management.",
-        "stack": ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
-        "demo": "#",
-        "repo": "#"
-      },
-      {
-        "name": "Microservices API Gateway",
-        "description": "Scalable API Gateway with JWT authentication, rate limiting, load balancing, and orchestration of multiple backend microservices.",
-        "stack": ["Spring Boot", "Redis", "PostgreSQL", "Docker", "Kubernetes"],
-        "demo": "#",
-        "repo": "#"
-      },
-      {
-        "name": "Real-time Chat Application",
-        "description": "Real-time chat application with rooms, private messaging, push notifications, and multimedia file sharing.",
-        "stack": ["Next.js", "Socket.io", "NestJS", "PostgreSQL", "Redis"],
-        "demo": "#",
-        "repo": "#"
-      },
-      {
-        "name": "Business Management System",
-        "description": "Comprehensive business management system with CRM modules, inventory, billing, accounting, and analytical reports.",
-        "stack": ["Angular", "Java Spring", "SQL Server", "Docker"],
-        "demo": "#",
-        "repo": "#"
-      }
-    ]
+    "title": "Featured projects",
+    "subtitle": "Where I ship LLM features and where I prove they work."
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Five years, three roles, one trajectory: communication → quality → AI engineering."
+  },
+  "about": {
+    "title": "About",
+    "availability": "Remote · Relocation open",
+    "summary": {
+      "firstSentence": "I'm a backend developer specialized in integrating and evaluating LLMs in production.",
+      "continued": "Three and a half years across QA, backend, and AI engineering.",
+      "body": "Currently at Oro Colombia building WISO — an operational platform where I integrated GPT-4.1 Nano via WhatsApp and built CI-integrated evaluation pipelines in Python/Jupyter. Previously at Wookky as QA Automation + Backend Developer, leading LLM eval strategy for an e-commerce AI assistant. Before that, medical interpreter at Teleperformance — EN↔ES, under pressure, professional ethics."
+    },
+    "otherWork": "These projects are what I'd point to first. I've shipped more across finance, e-commerce, CRM, internal agency tools and native mobile QA — happy to walk through specifics in conversation. The portfolio surfaces the AI-adjacent ones because that's where my craft is sharpest."
+  },
+  "stack": {
+    "title": "Stack",
+    "subtitle": "What I reach for first."
   },
   "contact": {
-    "title": "Contact",
-    "subtitle": "Interested in working together? I'm available for projects, collaborations, and remote work opportunities. Let's talk!",
-    "form": {
-      "name": "Full name",
-      "email": "Email",
-      "subject": "Subject",
-      "message": "Message",
-      "send": "Send message",
-      "sending": "Sending...",
-      "success": "Message sent successfully!",
-      "error": "Error sending message. Please try again.",
-      "validation": {
-        "nameRequired": "Name is required",
-        "emailRequired": "Email is required",
-        "emailInvalid": "Invalid email address",
-        "subjectRequired": "Subject is required",
-        "messageRequired": "Message is required",
-        "messageMin": "Message must be at least 10 characters"
-      }
-    }
+    "title": "Get in touch",
+    "subtitle": "Open to remote roles and relocation across Europe — especially Spain.",
+    "send": "Send message"
   },
   "footer": {
-    "rights": "All rights reserved",
-    "built": "Built with"
+    "status": "STATUS: NOMINAL"
   }
 }
