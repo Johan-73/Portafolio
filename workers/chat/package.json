@@ -1,0 +1,22 @@
+{
+  "name": "chat-johan-worker",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.38.0",
+    "hono": "^4.12.21",
+    "openai": "^6.38.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260520.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7",
+    "wrangler": "^4.93.0"
+  }
+}
