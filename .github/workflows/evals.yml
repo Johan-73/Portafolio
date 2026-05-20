@@ -1,0 +1,41 @@
+name: Run LLM Evals
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "evals/**"
+      - "workers/chat/src/system-prompt.ts"
+  schedule:
+    - cron: "0 6 * * *" # 06:00 UTC nightly
+  workflow_dispatch:
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install eval deps
+        working-directory: evals
+        run: npm ci || npm install
+
+      - name: Run evals
+        working-directory: evals
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          CHAT_ENDPOINT_URL: ${{ secrets.CHAT_ENDPOINT_URL }}
+          EVAL_BYPASS_TOKEN: ${{ secrets.EVAL_BYPASS_TOKEN }}
+        run: npm run run
+
+      - name: Commit results
+        run: |
+          git config user.name "evals-bot"
+          git config user.email "evals-bot@users.noreply.github.com"
+          git add public/evals/results.json
+          git diff --staged --quiet || (git commit -m "chore(evals): update results.json [skip ci]" && git push)
