@@ -28,3 +28,6 @@ Oferta-Trabajo.jpeg
 
 # Vite cache
 .vite/
+
+# Cloudflare Wrangler local secrets
+.dev.vars

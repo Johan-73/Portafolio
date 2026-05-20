@@ -1,25 +1,20 @@
-import { Navigation } from "@/components/Navigation";
-import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
-import { Skills } from "@/components/Skills";
-import { Experience } from "@/components/Experience";
-import { Projects } from "@/components/Projects";
-import { Contact } from "@/components/Contact";
-import { Footer } from "@/components/Footer";
+// Composition-only page. Features wired in as they land in src/features/.
+// Imports will be added as Hero, Chat, Eval Dashboard, Projects, etc. are built.
 
-const Index = () => {
+export default function Index() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Contact />
-      <Footer />
+    <div className="min-h-screen bg-ink text-foreground">
+      <main className="container mx-auto py-20 text-center">
+        <p className="font-mono text-xs uppercase tracking-widest text-violet">
+          [ PHOSPHOR · BUILDING ]
+        </p>
+        <h1 className="font-display text-5xl md:text-7xl font-medium mt-4">
+          Portfolio v2
+        </h1>
+        <p className="text-foreground/60 mt-4">
+          Sections will appear here as features land.
+        </p>
+      </main>
     </div>
   );
-};
-
-export default Index;
+}
