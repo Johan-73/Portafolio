@@ -12,6 +12,7 @@ type Env = {
   ALLOWED_ORIGIN: string;
   PER_IP_DAILY: string;
   GLOBAL_DAILY: string;
+  EVAL_BYPASS_TOKEN?: string;
 };
 
 const MAX_PROMPT_CHARS = 500;
@@ -46,23 +47,30 @@ app.post("/api/chat", async (c) => {
     return c.json({ error: "prompt-too-long", maxChars: MAX_PROMPT_CHARS }, 400);
   }
 
-  const ip = c.req.header("CF-Connecting-IP") ?? c.req.header("X-Forwarded-For") ?? "unknown";
+  const bypassToken = c.req.header("X-Eval-Token");
+  const isEvalBypass = !!c.env.EVAL_BYPASS_TOKEN && bypassToken === c.env.EVAL_BYPASS_TOKEN;
 
-  const redis = new Redis({
-    url: c.env.UPSTASH_REDIS_REST_URL,
-    token: c.env.UPSTASH_REDIS_REST_TOKEN,
-  });
+  let remainingForIp = 999;
+  if (!isEvalBypass) {
+    const ip = c.req.header("CF-Connecting-IP") ?? c.req.header("X-Forwarded-For") ?? "unknown";
 
-  const result = await checkAndIncrement(redis, ip, {
-    perIpDaily: parseInt(c.env.PER_IP_DAILY, 10),
-    globalDaily: parseInt(c.env.GLOBAL_DAILY, 10),
-  });
+    const redis = new Redis({
+      url: c.env.UPSTASH_REDIS_REST_URL,
+      token: c.env.UPSTASH_REDIS_REST_TOKEN,
+    });
 
-  if (!result.allowed) {
-    return c.json(
-      { error: "rate-limited", reason: result.reason, remainingForIp: result.remainingForIp },
-      429,
-    );
+    const result = await checkAndIncrement(redis, ip, {
+      perIpDaily: parseInt(c.env.PER_IP_DAILY, 10),
+      globalDaily: parseInt(c.env.GLOBAL_DAILY, 10),
+    });
+
+    if (!result.allowed) {
+      return c.json(
+        { error: "rate-limited", reason: result.reason, remainingForIp: result.remainingForIp },
+        429,
+      );
+    }
+    remainingForIp = result.remainingForIp;
   }
 
   const stream = await streamChat(c.env.OPENAI_API_KEY, {
@@ -73,7 +81,7 @@ app.post("/api/chat", async (c) => {
   return new Response(stream, {
     headers: {
       "Content-Type": "text/event-stream",
-      "X-Remaining-For-IP": result.remainingForIp.toString(),
+      "X-Remaining-For-IP": remainingForIp.toString(),
       "Cache-Control": "no-cache",
       Connection: "keep-alive",
     },
