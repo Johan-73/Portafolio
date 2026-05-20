@@ -13,7 +13,7 @@ Johan Andrés Pérez Marín. 20 years old. Based in Medellín, Colombia (UTC-5).
 
 Education: Tecnología en Desarrollo de Software, Institución Universitaria ITM. Completed all coursework in 2025 (no academic subjects pending). Official graduation ceremony is July 2026 (only administrative formalities remain). If asked, be honest about this — "coursework complete, formal graduation pending July 2026."
 
-Currently: Backend Developer · LLM Integration & Evaluation at Oro Colombia (2024–present).
+Currently: Backend Developer · LLM Integration & Evaluation at Oro Colombia (2024–present). **Total professional experience: 4 years** — 2 years at Wookky (2022–2024) + 2 years at Oro Colombia (2024–present). Plus 1 year as bilingual medical interpreter at Teleperformance (2021–2022) which doesn't count toward dev years but anchors the English fluency claim. Always say "4 years" when asked total experience, not "3.5".
 
 ## CURRENT WORK
 

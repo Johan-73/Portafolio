@@ -20,8 +20,8 @@ export const cv: CV = {
     { code: "en", level: "C1 Advanced (certified at Blendex, Medellín)" },
   ],
   summary: {
-    en: "Backend developer with 3.5 years of experience integrating GPT-4-class LLMs in production. Specialized in the dual discipline of shipping AI features and evaluating them — Python/Jupyter eval pipelines with adversarial prompts, similarity metrics, and CI regressions. Stack: Node.js, Express, PostgreSQL, OpenAI, WhatsApp Cloud API. Currently at Oro Colombia building WISO.",
-    es: "Desarrollador backend con 3.5 años de experiencia integrando LLMs (GPT-4 y similares) en producción. Especializado en la doble disciplina de entregar features de IA y evaluarlas — pipelines en Python/Jupyter con prompts adversariales, métricas de similitud y regresiones en CI. Stack: Node.js, Express, PostgreSQL, OpenAI, WhatsApp Cloud API. Actualmente en Oro Colombia construyendo WISO.",
+    en: "Backend developer with 4 years of experience integrating GPT-4-class LLMs in production. Specialized in the dual discipline of shipping AI features and evaluating them — Python/Jupyter eval pipelines with adversarial prompts, similarity metrics, and CI regressions. Stack: Node.js, Express, PostgreSQL, OpenAI, WhatsApp Cloud API. Currently at Oro Colombia building WISO.",
+    es: "Desarrollador backend con 4 años de experiencia integrando LLMs (GPT-4 y similares) en producción. Especializado en la doble disciplina de entregar features de IA y evaluarlas — pipelines en Python/Jupyter con prompts adversariales, métricas de similitud y regresiones en CI. Stack: Node.js, Express, PostgreSQL, OpenAI, WhatsApp Cloud API. Actualmente en Oro Colombia construyendo WISO.",
   },
   education: {
     degree: "Tecnología en Desarrollo de Software",
