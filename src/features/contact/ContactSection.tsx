@@ -3,6 +3,13 @@ import { useState } from "react";
 import { GlassPanel } from "@/shared/components/GlassPanel";
 import { MonoLabel } from "@/shared/components/MonoLabel";
 import { Github, Mail, MapPin } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/shared/ui/select";
 
 const CONTACTS = [
   {
@@ -15,20 +22,61 @@ const CONTACTS = [
   { icon: MapPin, label: "LOCATION", value: "Medellín · UTC-5" },
 ] as const;
 
+const TOPICS = ["Job opportunity", "Project consult", "Collaboration", "Other"];
+
+const WEB3FORMS_KEY = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) ?? "";
+
+type SubmitState = "idle" | "submitting" | "success" | "error";
+
 export function ContactSection() {
   const { t } = useTranslation();
   const [form, setForm] = useState({
     name: "",
     email: "",
-    topic: "Job opportunity",
+    topic: TOPICS[0],
     message: "",
   });
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`[Portfolio] ${form.topic} — ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    window.location.href = `mailto:johanperezmarin@gmail.com?subject=${subject}&body=${body}`;
+    if (!WEB3FORMS_KEY) {
+      // Fallback to mailto if key not configured
+      const subject = encodeURIComponent(`[Portfolio] ${form.topic} — ${form.name}`);
+      const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
+      window.location.href = `mailto:johanperezmarin@gmail.com?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    setSubmitState("submitting");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: form.name,
+          email: form.email,
+          subject: `[Portfolio] ${form.topic} — ${form.name}`,
+          message: form.message,
+          from_name: "Portfolio Contact Form",
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitState("success");
+        setForm({ name: "", email: "", topic: TOPICS[0], message: "" });
+      } else {
+        setSubmitState("error");
+        setErrorMsg(data.message ?? "Submission failed");
+      }
+    } catch (err) {
+      setSubmitState("error");
+      setErrorMsg(err instanceof Error ? err.message : "Network error");
+    }
   };
 
   return (
@@ -70,16 +118,25 @@ export function ContactSection() {
                 <MonoLabel color="muted" className="block mb-1.5">
                   [ WHAT IS THIS ABOUT? ]
                 </MonoLabel>
-                <select
+                <Select
                   value={form.topic}
-                  onChange={(e) => setForm({ ...form, topic: e.target.value })}
-                  className="w-full glass rounded-md px-3 py-2 text-foreground focus:border-violet/50 focus:outline-none focus:ring-1 focus:ring-violet/30"
+                  onValueChange={(v) => setForm({ ...form, topic: v })}
                 >
-                  <option>Job opportunity</option>
-                  <option>Project consult</option>
-                  <option>Collaboration</option>
-                  <option>Other</option>
-                </select>
+                  <SelectTrigger className="w-full glass rounded-md px-3 py-2 h-auto text-foreground border-white/8 hover:border-violet/30 focus:border-violet/50 focus:ring-1 focus:ring-violet/30 data-[state=open]:border-violet/50">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent className="bg-ink border border-white/10 backdrop-blur-md">
+                    {TOPICS.map((tp) => (
+                      <SelectItem
+                        key={tp}
+                        value={tp}
+                        className="text-foreground/80 focus:bg-violet/15 focus:text-violet data-[state=checked]:text-violet data-[state=checked]:bg-violet/10"
+                      >
+                        {tp}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <MonoLabel color="muted" className="block mb-1.5">
@@ -96,11 +153,23 @@ export function ContactSection() {
               <div className="flex items-center gap-3 flex-wrap">
                 <button
                   type="submit"
-                  className="glass glass-hover bg-violet/15 border-violet/30 rounded-md px-4 py-2 text-violet font-medium"
+                  disabled={submitState === "submitting"}
+                  className="glass glass-hover bg-violet/15 border-violet/30 rounded-md px-4 py-2 text-violet font-medium disabled:opacity-50"
                 >
-                  {t("contact.send")} →
+                  {submitState === "submitting" ? `${t("contact.send")}…` : `${t("contact.send")} →`}
                 </button>
-                <MonoLabel color="muted">[ OPENS YOUR MAIL APP ]</MonoLabel>
+                {submitState === "success" && (
+                  <MonoLabel color="phosphor">[ ✓ MESSAGE SENT ]</MonoLabel>
+                )}
+                {submitState === "error" && (
+                  <MonoLabel color="danger">[ ✗ {errorMsg.toUpperCase()} ]</MonoLabel>
+                )}
+                {submitState === "idle" && !WEB3FORMS_KEY && (
+                  <MonoLabel color="muted">[ OPENS YOUR MAIL APP ]</MonoLabel>
+                )}
+                {submitState === "idle" && WEB3FORMS_KEY && (
+                  <MonoLabel color="muted">[ DELIVERED VIA WEB3FORMS ]</MonoLabel>
+                )}
               </div>
             </form>
 
@@ -127,10 +196,7 @@ export function ContactSection() {
                     {inner}
                   </a>
                 ) : (
-                  <div
-                    key={c.label}
-                    className="glass rounded-md p-3 flex items-center gap-3"
-                  >
+                  <div key={c.label} className="glass rounded-md p-3 flex items-center gap-3">
                     {inner}
                   </div>
                 );
