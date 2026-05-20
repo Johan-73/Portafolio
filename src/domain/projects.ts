@@ -45,10 +45,10 @@ export const projects: Project[] = [
     name: "LLM Eval Starter Notebook",
     yearTag: "[ OSS · 2026 ]",
     description: {
-      en: "Open-source starter pack for evaluating LLM features in CI. Sanitized version of WISO's eval pipeline: datasets, adversarial prompts, similarity metrics, LLM-as-judge. Clone and run.",
-      es: "Plantilla open-source para evaluar features de LLM en CI. Versión sanitizada del pipeline de evaluación de WISO: datasets, prompts adversariales, métricas de similitud, LLM-as-judge. Clonable y ejecutable.",
+      en: "Public starter for evaluating LLM features in CI. Multi-provider judge (OpenAI + Anthropic), endpoint auto-detection, retry, baseline regression diff, JSON/HTML/Markdown reports. ~600 LOC TypeScript, 13 unit tests.",
+      es: "Plantilla pública para evaluar features de LLM en CI. Juez multi-proveedor (OpenAI + Anthropic), auto-detección de endpoint, reintentos, diff contra baseline, reportes JSON/HTML/Markdown. ~600 LOC en TypeScript, 13 tests unitarios.",
     },
-    stack: ["Python", "Jupyter", "OpenAI", "GitHub Actions", "YAML datasets"],
+    stack: ["TypeScript", "Node.js", "OpenAI", "Anthropic", "Vitest", "GitHub Actions"],
     repoUrl: "https://github.com/Johan-73/llm-eval-starter",
   },
 ];

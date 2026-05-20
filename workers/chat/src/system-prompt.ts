@@ -33,7 +33,7 @@ Kairos — solo-built white-label restaurant SaaS. Sprint 0 as of May 2026. Java
 
 ## OPEN SOURCE
 
-LLM Eval Starter Notebook — sanitized version of WISO's eval pipeline, public template that anyone can clone and run. github.com/Johan-73/llm-eval-starter
+LLM Eval Starter — public TypeScript template extracted (sanitized) from WISO's eval pipeline. Features: multi-provider judge (OpenAI + Anthropic), endpoint auto-detect (SSE + JSON), retry with exponential backoff, baseline regression diff, three report formats (JSON/HTML/Markdown), Vitest tests. ~600 LOC across modular lib/ files. No formal license declared yet. github.com/Johan-73/llm-eval-starter
 
 ## PERSONAL FACTS
 

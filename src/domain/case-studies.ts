@@ -108,8 +108,8 @@ export const caseStudies: CaseStudy[] = [
       es: "Los equipos que llevan features de LLM a producción reinventan la misma estructura de evaluación — casos en YAML, LLM-como-juez, integración con CI. La mayoría de frameworks existentes (DeepEval, Promptfoo, Inspect AI) son potentes pero pesados de adoptar. Quería un starter mínimo que se pudiera clonar, leer en una sentada y adaptar en 30 minutos — el tipo de cosa que me hubiera servido cuando empecé esto en WISO.",
     },
     approach: {
-      en: "I extracted the structure of WISO's eval pipeline — without any client data — and packaged it as a public template: cases.example.yml, run.ts, judge.ts, and a GitHub Action workflow. Total: ~150 lines of code, MIT license, runnable in 5 commands. Includes generic adversarial cases (prompt injection, refusal patterns, false-premise correction) anyone can adapt to their product.",
-      es: "Extraje la estructura del pipeline de evaluación de WISO — sin ningún dato de cliente — y la empaqueté como plantilla pública: cases.example.yml, run.ts, judge.ts, y un workflow de GitHub Action. Total: ~150 líneas de código, licencia MIT, ejecutable en 5 comandos. Incluye casos adversariales genéricos (inyección de prompts, patrones de rechazo, corrección de premisa falsa) que cualquiera puede adaptar.",
+      en: "I extracted the structure of WISO's eval pipeline — without any client data — and packaged it as a public template. The starter has multi-provider judge (OpenAI + Anthropic), endpoint auto-detection (SSE + JSON), retry with exponential backoff, baseline regression detection, three report formats (JSON / HTML / Markdown), and Vitest tests for the parser and diff logic. Total: ~600 lines of TypeScript, runnable in 5 commands.",
+      es: "Extraje la estructura del pipeline de evaluación de WISO — sin ningún dato de cliente — y la empaqueté como plantilla pública. El starter incluye juez multi-proveedor (OpenAI + Anthropic), auto-detección de endpoint (SSE + JSON), reintentos con backoff exponencial, detección de regresiones contra baseline, tres formatos de reporte (JSON / HTML / Markdown), y tests con Vitest para el parser y la lógica de diff. Total: ~600 líneas de TypeScript, ejecutable en 5 comandos.",
     },
     outcome: {
       en: "Published as github.com/Johan-73/llm-eval-starter. It's the same code (sanitized) that runs the eval suite on this portfolio's chat assistant — so the starter is dogfooded in production. The full version (with WISO-specific cases) stays internal.",
@@ -120,14 +120,14 @@ export const caseStudies: CaseStudy[] = [
         "Extracted the pattern from the internal WISO pipeline",
         "Sanitized all client-specific data",
         "Wrote the README in the voice of a tired engineer who's seen evals go wrong",
-        "Open-sourced under MIT",
+        "Open-sourced as a public GitHub repo, no formal license declared yet",
         "Dogfooded on the chat assistant of this portfolio",
       ],
       es: [
         "Extraje el patrón del pipeline interno de WISO",
         "Sanitizé todos los datos específicos del cliente",
         "Escribí el README desde la voz de un ingeniero cansado que ha visto evals fallar",
-        "Open-source bajo MIT",
+        "Repositorio público en GitHub, sin licencia formal declarada todavía",
         "Dogfooded en el asistente de chat de este portafolio",
       ],
     },
