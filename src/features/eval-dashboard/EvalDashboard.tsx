@@ -75,9 +75,26 @@ export function EvalDashboard() {
 
         <div className="mt-6 flex justify-between items-center flex-wrap gap-2">
           <MonoLabel color="cyan">
-            {t("evals.lastEvaluated")} {timeAgo(data.runAt)}
+            {t("evals.lastEvaluated")} {timeAgo(data.runAt)} · {new Date(data.runAt).toISOString().slice(0, 16).replace("T", " ")} UTC
           </MonoLabel>
-          <span className="font-mono text-xs text-foreground/40">{t("evals.viewMethodology")}</span>
+          <div className="flex gap-4 flex-wrap">
+            <a
+              href={`${import.meta.env.BASE_URL}evals/results.json`}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="font-mono text-xs uppercase tracking-wider text-violet hover:underline"
+            >
+              View raw JSON →
+            </a>
+            <a
+              href="https://github.com/Johan-73/llm-eval-starter#readme"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="font-mono text-xs uppercase tracking-wider text-violet hover:underline"
+            >
+              {t("evals.viewMethodology")}
+            </a>
+          </div>
         </div>
       </div>
     </section>

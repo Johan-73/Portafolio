@@ -1,10 +1,20 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Download, MessageCircle, FileText } from "lucide-react";
 import { MonoLabel } from "@/shared/components/MonoLabel";
 import { MetadataBar } from "@/shared/components/MetadataBar";
 import { cv } from "@/domain/cv";
 import { useGsapHeroEntrance } from "@/shared/hooks/useGsapHeroEntrance";
+import { loadEvalResults } from "@/infrastructure/eval-loader";
+import type { EvalResults } from "@/domain/eval-result";
+
+function timeAgo(iso: string): string {
+  const diff = Date.now() - new Date(iso).getTime();
+  const hours = Math.floor(diff / 3_600_000);
+  if (hours < 1) return "JUST NOW";
+  if (hours < 24) return `${hours}H AGO`;
+  return `${Math.floor(hours / 24)}D AGO`;
+}
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -13,7 +23,17 @@ function scrollTo(id: string) {
 export function Hero() {
   const { t } = useTranslation();
   const ref = useRef<HTMLElement>(null);
+  const [evals, setEvals] = useState<EvalResults | null>(null);
   useGsapHeroEntrance(ref);
+
+  useEffect(() => {
+    loadEvalResults().then(setEvals);
+  }, []);
+
+  const passText = evals
+    ? `${evals.passRate.passing}/${evals.passRate.total}`
+    : "—";
+  const lastEvalText = evals ? timeAgo(evals.runAt) : "—";
 
   return (
     <section
@@ -77,8 +97,8 @@ export function Hero() {
         <MetadataBar
           items={[
             { value: "[ ONLINE ]", color: "phosphor" },
-            { label: "LAST EVAL", value: "2H AGO", color: "cyan" },
-            { label: "PASSING", value: "9/10", color: "phosphor" },
+            { label: "LAST EVAL", value: lastEvalText, color: "cyan" },
+            { label: "PASSING", value: passText, color: "phosphor" },
             { label: "MODEL", value: "gpt-4.1-nano", color: "cyan" },
             { value: "MEDELLÍN UTC-5", color: "muted" },
           ]}
