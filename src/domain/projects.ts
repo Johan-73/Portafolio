@@ -38,7 +38,7 @@ export const projects: Project[] = [
       es: "SaaS para restaurantes white-label construido en solitario. Monolito modular, multi-tenant por tenant_id, PWA offline-first. Actualmente diseñando el agente de IA de domicilios vía WhatsApp (EP-08).",
     },
     stack: ["Java 21", "Spring Boot 3", "Next.js 15", "PostgreSQL", "Kafka", "Redis"],
-    repoUrl: "https://github.com/Johan-73/Kairos",
+    // Kairos repo is private — no public link. The case study page tells the story instead.
   },
   {
     id: "llm-eval-starter",

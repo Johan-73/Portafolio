@@ -137,14 +137,15 @@ export function ChatPanel() {
             )}
           </div>
 
-          {/* Suggested prompts */}
-          {!hasContent && !isRateLimited && (
+          {/* Suggested prompts — always visible (unless rate-limited) so visitors can keep exploring */}
+          {!isRateLimited && (
             <div className="mt-4 flex flex-wrap gap-2 justify-center">
               {suggestions.map((s) => (
                 <button
                   key={s}
                   onClick={() => handleSend(s)}
-                  className="glass glass-hover rounded-full px-3 py-1.5 text-xs text-foreground/70 hover:text-violet"
+                  disabled={busy}
+                  className="glass glass-hover rounded-full px-3 py-1.5 text-xs text-foreground/70 hover:text-violet disabled:opacity-30"
                 >
                   {s}
                 </button>

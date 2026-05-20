@@ -19,7 +19,7 @@ export function TopNav() {
           href="#hero"
           className="font-mono text-xs uppercase tracking-widest text-foreground/80 hover:text-violet transition-colors"
         >
-          phosphor // jp
+          johan pérez
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {SECTIONS.map((s) => (

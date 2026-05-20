@@ -17,7 +17,7 @@ export const cv: CV = {
   timezone: "UTC-5",
   languages: [
     { code: "es", level: "Native" },
-    { code: "en", level: "C1 Advanced" },
+    { code: "en", level: "C1 Advanced (certified at Blendex, Medellín)" },
   ],
   summary: {
     en: "Backend developer with 3.5 years of experience integrating GPT-4-class LLMs in production. Specialized in the dual discipline of shipping AI features and evaluating them — Python/Jupyter eval pipelines with adversarial prompts, similarity metrics, and CI regressions. Stack: Node.js, Express, PostgreSQL, OpenAI, WhatsApp Cloud API. Currently at Oro Colombia building WISO.",
@@ -26,7 +26,7 @@ export const cv: CV = {
   education: {
     degree: "Tecnología en Desarrollo de Software",
     institution: "Institución Universitaria ITM",
-    period: "2022–2025",
-    graduated: true,
+    period: "2022–2025 (coursework) · graduating July 2026",
+    graduated: false,
   },
 };
